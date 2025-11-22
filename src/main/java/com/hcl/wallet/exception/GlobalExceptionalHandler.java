@@ -1,6 +1,5 @@
 package com.hcl.wallet.exception;
 
-import com.hclhackathon.exception.CustomerAlreadyExistsException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,14 +32,6 @@ public class GlobalExceptionalHandler {
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(CustomerAlreadyExistsException.class)
-    public ResponseEntity<?> handleCustomerExists(CustomerAlreadyExistsException ex) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("Message :- ", ex.getMessage());
-        map.put("Status :- ", HttpStatus.CONFLICT);
-        map.put("Code :- ", HttpStatus.CONFLICT.value());
-        return new ResponseEntity<>(map, HttpStatus.CONFLICT);
-    }
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<?> handleAnyException(RuntimeException runtimeException) {
