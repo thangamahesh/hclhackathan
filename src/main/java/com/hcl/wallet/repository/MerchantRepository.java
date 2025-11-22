@@ -2,6 +2,12 @@ package com.hcl.wallet.repository;
 
 import com.hcl.wallet.model.Merchant;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MerchantRepository extends JpaRepository<Merchant, Integer>  {
+import java.util.Optional;
+
+@Repository
+public interface MerchantRepository extends JpaRepository<Merchant, Long> {
+    Optional<Merchant> findByMerchantAccountNumber(String accountNumber);
 }
+
