@@ -182,6 +182,72 @@ curl "http://localhost:8888/api/products/merchant/1"
 
 ---
 
+## Customer APIs
+
+Use the existing `Customer` entity (no new folders). The customer APIs support signup, login and profile retrieval. Passwords are stored as hashes (the API never returns `passwordHash`).
+
+### 1) Signup Customer
+- Method: POST
+- Path: /api/customer/signup
+- Description: Create a new customer (password is hashed before storing).
+- Body (JSON):
+```json
+{
+  "customerId": 1001,
+  "fullName": "John Doe",
+  "email": "john@example.com",
+  "mobileNumber": "+15551234567",
+  "password": "PlainTextPass"
+}
+```
+- cURL (paste into Postman Import → Raw Text):
+
+```bash
+curl -X POST "http://localhost:8888/api/customer/signup" \
+  -H "Content-Type: application/json" \
+  -d '{"customerId":1001,"fullName":"John Doe","email":"john@example.com","mobileNumber":"+15551234567","password":"PlainTextPass"}'
+```
+
+### 2) Login Customer
+- Method: POST
+- Path: /api/customer/login
+- Description: Authenticate customer by `customerId` and `password`. Returns a `CustomerProfileDto` on success (no token is issued by default).
+- Body (JSON):
+```json
+{
+  "customerId": 1001,
+  "password": "PlainTextPass"
+}
+```
+- cURL:
+
+```bash
+curl -X POST "http://localhost:8888/api/customer/login" \
+  -H "Content-Type: application/json" \
+  -d '{"customerId":1001,"password":"PlainTextPass"}'
+```
+
+### 3) Get Customer Profile
+- Method: GET
+- Path: /api/customer/{id}
+- Description: Returns the customer's profile (safe DTO; excludes `passwordHash`).
+- Example (customerId = 1001):
+
+```bash
+curl "http://localhost:8888/api/customer/1001"
+```
+
+Notes:
+- The project stores the password hash in the `password_hash` column on the `customer` table. If you manage schema manually, add this column:
+
+```sql
+ALTER TABLE customer ADD COLUMN password_hash VARCHAR(255);
+```
+
+- Recommend next steps: issue JWT on login and protect endpoints so customers can only access their own profile. Also consider allowing login via email or mobile number (UX improvement).
+
+---
+
 ## Importing to Postman
 1. Open Postman → Import → Raw Text.
 2. Paste any of the cURL commands above and click Import.
