@@ -15,6 +15,7 @@ import java.util.Map;
 @Slf4j
 public class GlobalExceptionalHandler {
 
+/*
     @ExceptionHandler(EmployeeNotFound.class)
     public ResponseEntity<?> handleNotFound(EmployeeNotFound employeeNotFound) {
         Map<String, Object> map = new HashMap<>();
@@ -23,6 +24,7 @@ public class GlobalExceptionalHandler {
         map.put("Code :-", HttpStatus.NOT_FOUND.value());
         return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
     }
+*/
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleBeanValidation(MethodArgumentNotValidException exception) {

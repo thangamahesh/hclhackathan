@@ -17,9 +17,13 @@ public class Wallet {
     @Column(name = "wallet_id")
     private Long walletId;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "customer_id")
+    @OneToOne(optional = true)
+    @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
+
+    @OneToOne(optional = true)
+    @JoinColumn(name = "merchant_id", nullable = true)
+    private Merchant merchant;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "currency_code")
