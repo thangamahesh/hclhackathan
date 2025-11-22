@@ -1,5 +1,7 @@
 server:
   port: 8888
+  servlet:
+    context-path: /e-wallet
 
 spring:
   datasource:
@@ -15,3 +17,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+logging:
+  level:
+    com.hcl.wallet.controller: DEBUG
+    com.hcl.wallet.security: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
