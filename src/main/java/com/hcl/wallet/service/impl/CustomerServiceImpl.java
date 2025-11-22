@@ -2,12 +2,13 @@ package com.hcl.wallet.service.impl;
 
 import com.hcl.wallet.dao.CustomerDao;
 import com.hcl.wallet.dto.CustomerSignupDTO;
-import com.hcl.wallet.exception.CustomerAlreadyExistsException;
+
 import com.hcl.wallet.model.Customer;
 import com.hcl.wallet.repository.CustomerRepository;
 import com.hcl.wallet.service.CustomerService;
+import com.hclhackathon.exception.CustomerAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,8 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    //@Autowired
+    // BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public Customer signup(CustomerSignupDTO dto) {

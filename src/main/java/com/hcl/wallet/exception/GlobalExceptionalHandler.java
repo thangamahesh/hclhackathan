@@ -1,5 +1,6 @@
 package com.hcl.wallet.exception;
 
+import com.hclhackathon.exception.CustomerAlreadyExistsException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
