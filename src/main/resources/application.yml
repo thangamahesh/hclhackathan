@@ -1,10 +1,12 @@
 server:
   port: 8888
+  servlet:
+    context-path: /e-wallet
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sbjunit5?createDatabaseIfNotExist=true&autoReconnect=true&showSSL=false
+    url: jdbc:mysql://localhost:3306/sbjunit5
     username: root
     password: root
   jpa:
@@ -15,3 +17,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+logging:
+  level:
+    com.hcl.wallet.controller: DEBUG
+    com.hcl.wallet.security: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

@@ -32,6 +32,10 @@ public class Customer {
     @Column(name = "kyc_status", nullable = false, length = 20)
     private String kycStatus;
 
+    // store password hash for authentication; nullable to avoid breaking existing data
+    @Column(name = "password_hash", length = 255)
+    private String passwordHash;
+
     @PrimaryKeyJoinColumn(name = "customer_transactional_currency")
     @OneToOne
     private Currency customerTransactionalCurrency;
