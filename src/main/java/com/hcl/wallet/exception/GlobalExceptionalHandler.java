@@ -32,6 +32,15 @@ public class GlobalExceptionalHandler {
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(CustomerAlreadyExistsException.class)
+    public ResponseEntity<?> handleCustomerExists(CustomerAlreadyExistsException ex) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("Message :- ", ex.getMessage());
+        map.put("Status :- ", HttpStatus.CONFLICT);
+        map.put("Code :- ", HttpStatus.CONFLICT.value());
+        return new ResponseEntity<>(map, HttpStatus.CONFLICT);
+    }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<?> handleAnyException(RuntimeException runtimeException) {
         Map<String, Object> map = new HashMap<>();
