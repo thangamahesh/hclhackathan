@@ -1,13 +1,16 @@
 package com.hcl.wallet.service;
 
-import com.hcl.wallet.dto.CustomerLoginDto;
-import com.hcl.wallet.dto.CustomerProfileDto;
-import com.hcl.wallet.dto.CustomerSignupDto;
+import com.hcl.wallet.dto.CustomerSignupDTO;
 import com.hcl.wallet.model.Customer;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface CustomerService {
-    Customer signup(CustomerSignupDto dto);
-    Customer login(CustomerLoginDto dto);
-    CustomerProfileDto getProfile(Long customerId);
+    Customer signup(CustomerSignupDTO dto);
+
+    Optional<Customer> findById(Long id);
+
+    List<Customer> getAllCustomers();
 }
 

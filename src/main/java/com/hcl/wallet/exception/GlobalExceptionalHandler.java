@@ -32,6 +32,7 @@ public class GlobalExceptionalHandler {
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
     }
 
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<?> handleAnyException(RuntimeException runtimeException) {
         Map<String, Object> map = new HashMap<>();
