@@ -30,7 +30,7 @@ public class Merchant {
     @Column(name = "merchant_account_number", nullable = false, length = 100)
     private String merchantAccountNumber;
 
-    @Column(name = "settlement_currency", nullable = false, length = 3)
+    @PrimaryKeyJoinColumn(name = "settlement_currency")
     @OneToOne
     private Currency settlementCurrency;
 

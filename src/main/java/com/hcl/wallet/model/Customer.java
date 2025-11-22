@@ -30,7 +30,7 @@ public class Customer {
     @Column(name = "kyc_status", nullable = false, length = 20)
     private String kycStatus;
 
-    @Column(name = "customer_transactional_currency", length = 10)
+    @PrimaryKeyJoinColumn(name = "customer_transactional_currency")
     @OneToOne
     private Currency customerTransactionalCurrency;
 
