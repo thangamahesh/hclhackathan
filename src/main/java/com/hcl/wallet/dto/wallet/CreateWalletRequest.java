@@ -15,6 +15,9 @@ public class CreateWalletRequest {
     @NotNull
     private Long customerId;
 
+    @NotNull
+    private Long walletId;
+
     @NotBlank
     private String currencyCode;
 
