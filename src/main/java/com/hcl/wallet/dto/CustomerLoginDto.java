@@ -10,24 +10,11 @@ import jakarta.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MerchantSignupDto {
-
+public class CustomerLoginDto {
     @NotNull
-    private Long merchantId;
-
-    @NotBlank
-    private String businessName;
-
-    private String contactEmail;
-
-    private String contactPhone;
-
-    @NotBlank
-    private String merchantAccountNumber;
-
-    @NotBlank
-    private String settlementCurrency;
+    private Long customerId;
 
     @NotBlank
     private String password;
 }
+
