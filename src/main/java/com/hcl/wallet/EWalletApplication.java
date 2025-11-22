@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SbJunit5Application {
+public class EWalletApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SbJunit5Application.class, args);
+        SpringApplication.run(EWalletApplication.class, args);
     }
 }
