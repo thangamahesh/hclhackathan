@@ -5,15 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MerchantSignupDto {
-
-    @NotNull
-    private Long merchantId;
+public class MerchantProfileUpdateDto {
 
     @NotBlank
     private String businessName;
@@ -22,12 +18,5 @@ public class MerchantSignupDto {
 
     private String contactPhone;
 
-    @NotBlank
-    private String merchantAccountNumber;
-
-    @NotBlank
     private String settlementCurrency;
-
-    @NotBlank
-    private String password;
 }
